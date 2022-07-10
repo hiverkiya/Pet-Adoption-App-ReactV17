@@ -4,3 +4,12 @@ dist/
 .env
 .DS_Store
 .vscode/
+.parcel-cache/*.*
+.parcel-cache/3d6502f7f341a7e5
+.gitignore
+.parcel-cache/b485a9e352d6bc46
+.parcel-cache/41321691575b5a4f
+.parcel-cache/528255e77a884ca7
+.parcel-cache/e3f3854555baa5d0
+.parcel-cache/67788daa04ec06cb
+.parcel-cache/ae3c784ff75076d8
