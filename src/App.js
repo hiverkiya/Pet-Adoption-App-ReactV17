@@ -1,7 +1,15 @@
 import React from "react";
-import { ReactDOM } from "react";
-import Pet from "./Pet";
-const App = () => {
+import { render } from "react-dom";
+import SearchParams from "./SearchParams";
+const App=()=>{
+    return (
+      <div id="my-app">
+        <h1> Adopt Me!</h1>
+       <SearchParams/>
+      </div>
+    );
+}
+/*const App = () => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, "Adopt Me!"),
     React.createElement(Pet, {
@@ -20,5 +28,6 @@ const App = () => {
       breed: "Mix",
     }),
   ]);
-};
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+};*/
+//ReactDOM.render(React.createElement(App), document.getElementById("root"));
+render(<App />, document.getElementById("root"));
