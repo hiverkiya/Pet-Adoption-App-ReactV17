@@ -1,5 +1,6 @@
-import { useState , useEffect} from "react";
+import { useState , useEffect, useContext} from "react";
 import Results from "./Results";
+import ThemeContext from "./ThemeContext";
 import useBreedList from "./useBreedList";
 const ANIMALS=["Bird","Cat","Dog","Dinosaur","Reptile"]
 const SearchParams=()=>{
@@ -8,6 +9,7 @@ const SearchParams=()=>{
     const [animal,setAnimal]=useState("")
     const [breed,setBreed]=useState("")
     const BREEDS=useBreedList(animal)
+    const[theme,setTheme]=useContext(ThemeContext)
     const [pets,setPets]=useState([])
     useEffect(()=>
     {
@@ -23,10 +25,10 @@ const SearchParams=()=>{
     return (
       <div className="search-params">
         <form
-        onSubmit={e=>{
-          e.preventDefault()
-          requestPets()
-        }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            requestPets();
+          }}
         >
           <label htmlFor="location">
             Location
@@ -65,11 +67,9 @@ const SearchParams=()=>{
               id="breed"
               value={breed}
               onChange={(e) => {
-                
                 setBreed(e.target.value);
               }}
               onBlur={(e) => {
-                
                 setBreed(e.target.value);
               }}
             >
@@ -81,10 +81,22 @@ const SearchParams=()=>{
               ))}
             </select>
           </label>
-
-          <button>Submit</button>
+          <label htmlFor="theme">
+            Theme
+            <select
+              value={theme}
+              onChange={(e) => setTheme(e.target.value)}
+              onBlur={(e) => setTheme(e.target.value)}
+            >
+              <option value="peru">Peru</option>
+              <option value="darkblue">Dark Blue</option>
+              <option value="mediumorchid">Medium Orchid</option>
+              <option value="chartreuse">Chartreuse</option>
+            </select>
+          </label>
+          <button style={{ backgroundColor: theme }}>Submit</button>
         </form>
-        <Results pets={pets}/>
+        <Results pets={pets} />
       </div>
     );
 }
